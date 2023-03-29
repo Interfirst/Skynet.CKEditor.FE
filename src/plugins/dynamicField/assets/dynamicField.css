@@ -1,0 +1,5 @@
+.ck-content:not(.ck-read-only) .ck-widget__react_rendering.ck-widget_selected .content span {
+  border-color: rgba(0, 0, 0, 0.5);
+  background: transparent;
+  color: #000000;
+}
