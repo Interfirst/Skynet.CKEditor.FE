@@ -1,6 +1,6 @@
 {
   "name": "@interfirst/ckeditor-custom-build",
-  "version": "1.0.1",
+  "version": "1.0.3",
   "private": false,
   "repository": {
     "type": "git",
@@ -17,7 +17,7 @@
     "start": "nodemon --watch src --ext js,css --exec \"yarn run build\" & browser-sync start --proxy \"http://localhost:3000\" --files \"build\" \"*.css\" --browser \"chrome\""
   },
   "devDependencies": {
-    "@interfirst/utils": "1.0.1",
+    "@interfirst/utils": "1.0.3",
     "browser-sync": "^2.26.13",
     "nodemon": "^2.0.7",
     "postcss-loader": "^3.0.0",
