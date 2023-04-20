@@ -1,12 +1,12 @@
-# FE.CKEditor
+# Skynet.CKEditor.FE
 
 ## Installation
 
 #### Clone the repository
 
 ```bash
-git clone git@github.com:Interfirst/FE.CKEditor.git
-cd FE.CKEditor
+git clone git@github.com:Interfirst/Skynet.CKEditor.FE.git
+cd Skynet.CKEditor.FE
 yarn install
 ```
 
