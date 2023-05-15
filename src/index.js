@@ -7,6 +7,7 @@ import Strikethrough from '@ckeditor/ckeditor5-basic-styles/src/strikethrough';
 import Underline from '@ckeditor/ckeditor5-basic-styles/src/underline';
 import BlockQuote from '@ckeditor/ckeditor5-block-quote/src/blockquote';
 import EasyImage from '@ckeditor/ckeditor5-easy-image/src/easyimage';
+import ClassicEditorBase from '@ckeditor/ckeditor5-editor-classic/src/classiceditor';
 import DecoupledEditorBase from '@ckeditor/ckeditor5-editor-decoupled/src/decouplededitor';
 import Essentials from '@ckeditor/ckeditor5-essentials/src/essentials';
 import FontBackgroundColor from '@ckeditor/ckeditor5-font/src/fontbackgroundcolor';
@@ -31,6 +32,8 @@ import PasteFromOffice from './plugins/pastefromoffice';
 import ReactRendering from './plugins/reactRendering';
 import { RenderTypes } from './plugins/reactRendering/constants';
 import Signature from './plugins/signature';
+
+class EmailEditor extends ClassicEditorBase {}
 
 class InterfirstEditor extends DecoupledEditorBase {}
 
@@ -134,4 +137,61 @@ InterfirstEditor.defaultConfig = {
   },
 };
 
-export default InterfirstEditor;
+EmailEditor.builtinPlugins = [
+  Alignment,
+  Autoformat,
+  BlockQuote,
+  Bold,
+  Essentials,
+  FontBackgroundColor,
+  FontColor,
+  FontFamily,
+  FontSize,
+  Heading,
+  Image,
+  Indent,
+  Italic,
+  Link,
+  List,
+  Paragraph,
+  Strikethrough,
+  TextTransformation,
+  Underline,
+];
+
+// Editor configuration.
+EmailEditor.defaultConfig = {
+  toolbar: {
+    items: [
+      'heading',
+      '|',
+      'fontFamily',
+      'fontSize',
+      'fontColor',
+      'fontBackgroundColor',
+      '|',
+      'bold',
+      'italic',
+      'underline',
+      'strikethrough',
+      '|',
+      'alignment',
+      '|',
+      'numberedList',
+      'bulletedList',
+      '|',
+      'indent',
+      'outdent',
+      '|',
+      'link',
+      'blockQuote',
+      '|',
+      'undo',
+      'redo',
+    ],
+  },
+  language: 'en',
+};
+
+export default { EmailEditor, InterfirstEditor };
+
