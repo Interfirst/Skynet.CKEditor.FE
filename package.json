@@ -1,6 +1,6 @@
 {
   "name": "@interfirst/ckeditor-custom-build",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "private": false,
   "repository": {
     "type": "git",
@@ -38,6 +38,7 @@
     "@ckeditor/ckeditor5-dev-utils": "^20.0.0",
     "@ckeditor/ckeditor5-dev-webpack-plugin": "^20.0.0",
     "@ckeditor/ckeditor5-easy-image": "^25.0.0",
+    "@ckeditor/ckeditor5-editor-classic": "^25.0.0",
     "@ckeditor/ckeditor5-editor-decoupled": "^25.0.0",
     "@ckeditor/ckeditor5-engine": "^25.0.0",
     "@ckeditor/ckeditor5-essentials": "^25.0.0",
