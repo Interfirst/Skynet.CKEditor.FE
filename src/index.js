@@ -154,6 +154,7 @@ EmailEditor.builtinPlugins = [
   Heading,
   Image,
   Indent,
+  IndentBlock,
   Italic,
   Link,
   List,
