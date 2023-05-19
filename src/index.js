@@ -166,8 +166,8 @@ EmailEditor.builtinPlugins = [
 
 // Editor configuration.
 EmailEditor.defaultConfig = {
+  ...commonConfigOptions,
   toolbar: {
-    ...commonConfigOptions,
     items: [
       'heading',
       '|',
