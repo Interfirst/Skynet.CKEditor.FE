@@ -37,6 +37,33 @@ class EmailEditor extends ClassicEditorBase {}
 
 class InterfirstEditor extends DecoupledEditorBase {}
 
+const commonConfigOptions = {
+  fontFamily: {
+    options: [
+      'default',
+      'Arial, Helvetica, sans-serif',
+      'Courier New, Courier, monospace',
+      'Georgia, serif',
+      'Lucida Sans Unicode, Lucida Grande, sans-serif',
+      'Tahoma, Geneva, sans-serif',
+      'Times New Roman, Times, serif',
+      'Trebuchet MS, Helvetica, sans-serif',
+      'Verdana, Geneva, sans-serif',
+    ],
+    supportAllValues: true,
+  },
+  fontSize: {
+    options: [9, 10, 11, 12, 13, 'default', 15, 16, 17, 18, 19, 20, 21],
+    supportAllValues: true,
+  },
+  // This value must be kept in sync with the language defined in webpack.config.js.
+  language: 'en',
+  indentBlock: {
+    offset: 16,
+    unit: 'px',
+  },
+} 
+
 // Plugins to include in the build.
 InterfirstEditor.builtinPlugins = [
   Essentials,
@@ -73,24 +100,7 @@ InterfirstEditor.builtinPlugins = [
 
 // Editor configuration.
 InterfirstEditor.defaultConfig = {
-  fontFamily: {
-    options: [
-      'default',
-      'Arial, Helvetica, sans-serif',
-      'Courier New, Courier, monospace',
-      'Georgia, serif',
-      'Lucida Sans Unicode, Lucida Grande, sans-serif',
-      'Tahoma, Geneva, sans-serif',
-      'Times New Roman, Times, serif',
-      'Trebuchet MS, Helvetica, sans-serif',
-      'Verdana, Geneva, sans-serif',
-    ],
-    supportAllValues: true,
-  },
-  fontSize: {
-    options: [9, 10, 11, 12, 13, 'default', 15, 16, 17, 18, 19, 20, 21],
-    supportAllValues: true,
-  },
+  ...commonConfigOptions,
   toolbar: {
     items: [
       'heading',
@@ -129,12 +139,6 @@ InterfirstEditor.defaultConfig = {
   table: {
     contentToolbar: ['tableColumn', 'tableRow', 'mergeTableCells'],
   },
-  // This value must be kept in sync with the language defined in webpack.config.js.
-  language: 'en',
-  indentBlock: {
-    offset: 16,
-    unit: 'px',
-  },
 };
 
 EmailEditor.builtinPlugins = [
@@ -162,6 +166,7 @@ EmailEditor.builtinPlugins = [
 // Editor configuration.
 EmailEditor.defaultConfig = {
   toolbar: {
+    ...commonConfigOptions,
     items: [
       'heading',
       '|',
@@ -190,7 +195,6 @@ EmailEditor.defaultConfig = {
       'redo',
     ],
   },
-  language: 'en',
 };
 
 export default { EmailEditor, InterfirstEditor };
