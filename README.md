@@ -21,3 +21,8 @@ yarn build
 ```bash
 yarn start
 ```
+
+## Publish package
+1. Build package locally (yarn run build)
+2. Get npm auth token and add it to .npmrc
+3. Run `npm publish`
