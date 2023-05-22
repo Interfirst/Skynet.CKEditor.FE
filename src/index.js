@@ -167,6 +167,9 @@ EmailEditor.builtinPlugins = [
 // Editor configuration.
 EmailEditor.defaultConfig = {
   ...commonConfigOptions,
+  link: {
+    defaultProtocol: 'https://',
+  },
   toolbar: {
     items: [
       'heading',
