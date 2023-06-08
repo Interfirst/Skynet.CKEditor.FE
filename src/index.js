@@ -63,7 +63,7 @@ const commonConfigOptions = {
     offset: 16,
     unit: 'px',
   },
-}
+};
 
 // Plugins to include in the build.
 InterfirstEditor.builtinPlugins = [
