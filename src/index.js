@@ -32,6 +32,7 @@ import PasteFromOffice from './plugins/pastefromoffice';
 import ReactRendering from './plugins/reactRendering';
 import { RenderTypes } from './plugins/reactRendering/constants';
 import Signature from './plugins/signature';
+import { emailEditorColors } from './constants';
 
 class EmailEditor extends ClassicEditorBase {}
 
@@ -62,7 +63,7 @@ const commonConfigOptions = {
     offset: 16,
     unit: 'px',
   },
-} 
+}
 
 // Plugins to include in the build.
 InterfirstEditor.builtinPlugins = [
@@ -199,6 +200,8 @@ EmailEditor.defaultConfig = {
       'redo',
     ],
   },
+  fontColor: emailEditorColors,
+  fontBackgroundColor: emailEditorColors,
 };
 
 export default { EmailEditor, InterfirstEditor };
