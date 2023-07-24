@@ -25,6 +25,14 @@ import Paragraph from '@ckeditor/ckeditor5-paragraph/src/paragraph';
 import Table from '@ckeditor/ckeditor5-table/src/table';
 import TableToolbar from '@ckeditor/ckeditor5-table/src/tabletoolbar';
 import TextTransformation from '@ckeditor/ckeditor5-typing/src/texttransformation';
+import Base64UploadAdapter from '@ckeditor/ckeditor5-upload/src/adapters/base64uploadadapter';
+import AutoImage from '@ckeditor/ckeditor5-image/src/autoimage';
+import Image from '@ckeditor/ckeditor5-image/src/image';
+import ImageCaption from '@ckeditor/ckeditor5-image/src/imagecaption';
+import ImageInsert from '@ckeditor/ckeditor5-image/src/imageinsert';
+import ImageStyle from '@ckeditor/ckeditor5-image/src/imagestyle';
+import ImageToolbar from '@ckeditor/ckeditor5-image/src/imagetoolbar';
+import ImageUpload from '@ckeditor/ckeditor5-image/src/imageupload';
 
 import DynamicField from './plugins/dynamicField';
 import IndentBlock from './plugins/indentblock';
@@ -84,6 +92,14 @@ InterfirstEditor.builtinPlugins = [
   Heading,
   Indent,
   IndentBlock,
+  Base64UploadAdapter,
+  AutoImage,
+  Image,
+  ImageCaption,
+  ImageInsert,
+  ImageStyle,
+  ImageToolbar,
+  ImageUpload,
   Link,
   List,
   ListStyle,
@@ -130,6 +146,7 @@ InterfirstEditor.defaultConfig = {
       '|',
       'link',
       'blockquote',
+      'imageUpload',
       'insertTable',
       'htmlEmbed',
       '|',
@@ -137,6 +154,16 @@ InterfirstEditor.defaultConfig = {
       'redo',
     ],
   },
+  image: {
+    styles: [
+       'full', 
+        'side',
+        'alignLeft', 
+        'alignCenter', 
+        'alignRight' 
+    ],
+    toolbar: ['imageStyle:full', 'imageStyle:side', '|', 'imageStyle:alignLeft', 'imageStyle:alignCenter', 'imageStyle:alignRight'],
+},
   table: {
     contentToolbar: ['tableColumn', 'tableRow', 'mergeTableCells'],
   },
