@@ -30,6 +30,7 @@ import AutoImage from '@ckeditor/ckeditor5-image/src/autoimage';
 import Image from '@ckeditor/ckeditor5-image/src/image';
 import ImageCaption from '@ckeditor/ckeditor5-image/src/imagecaption';
 import ImageInsert from '@ckeditor/ckeditor5-image/src/imageinsert';
+import ImageResize from '@ckeditor/ckeditor5-image/src/imageresize';
 import ImageStyle from '@ckeditor/ckeditor5-image/src/imagestyle';
 import ImageToolbar from '@ckeditor/ckeditor5-image/src/imagetoolbar';
 import ImageUpload from '@ckeditor/ckeditor5-image/src/imageupload';
@@ -71,6 +72,16 @@ const commonConfigOptions = {
     offset: 16,
     unit: 'px',
   },
+  image: {
+    styles: [
+       'full', 
+        'side',
+        'alignLeft', 
+        'alignCenter', 
+        'alignRight' 
+    ],
+    toolbar: ['imageStyle:full', 'imageStyle:side', '|', 'imageStyle:alignLeft', 'imageStyle:alignCenter', 'imageStyle:alignRight'],
+},
 };
 
 // Plugins to include in the build.
@@ -154,16 +165,6 @@ InterfirstEditor.defaultConfig = {
       'redo',
     ],
   },
-  image: {
-    styles: [
-       'full', 
-        'side',
-        'alignLeft', 
-        'alignCenter', 
-        'alignRight' 
-    ],
-    toolbar: ['imageStyle:full', 'imageStyle:side', '|', 'imageStyle:alignLeft', 'imageStyle:alignCenter', 'imageStyle:alignRight'],
-},
   table: {
     contentToolbar: ['tableColumn', 'tableRow', 'mergeTableCells'],
   },
@@ -180,7 +181,14 @@ EmailEditor.builtinPlugins = [
   FontFamily,
   FontSize,
   Heading,
+  Base64UploadAdapter,
+  AutoImage,
   Image,
+  ImageInsert,
+  ImageResize,
+  ImageStyle,
+  ImageToolbar,
+  ImageUpload,
   Indent,
   IndentBlock,
   Italic,
@@ -222,6 +230,7 @@ EmailEditor.defaultConfig = {
       '|',
       'link',
       'blockQuote',
+      'imageUpload',
       '|',
       'undo',
       'redo',
