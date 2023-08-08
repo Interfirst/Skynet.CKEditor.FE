@@ -1,39 +1,26 @@
-import UploadAdapter from '@ckeditor/ckeditor5-adapter-ckfinder/src/uploadadapter';
-import Alignment from '@ckeditor/ckeditor5-alignment/src/alignment';
-import Autoformat from '@ckeditor/ckeditor5-autoformat/src/autoformat';
-import Bold from '@ckeditor/ckeditor5-basic-styles/src/bold';
-import Italic from '@ckeditor/ckeditor5-basic-styles/src/italic';
-import Strikethrough from '@ckeditor/ckeditor5-basic-styles/src/strikethrough';
-import Underline from '@ckeditor/ckeditor5-basic-styles/src/underline';
-import BlockQuote from '@ckeditor/ckeditor5-block-quote/src/blockquote';
-import EasyImage from '@ckeditor/ckeditor5-easy-image/src/easyimage';
-import ClassicEditorBase from '@ckeditor/ckeditor5-editor-classic/src/classiceditor';
-import DecoupledEditorBase from '@ckeditor/ckeditor5-editor-decoupled/src/decouplededitor';
-import Essentials from '@ckeditor/ckeditor5-essentials/src/essentials';
-import FontBackgroundColor from '@ckeditor/ckeditor5-font/src/fontbackgroundcolor';
-import FontColor from '@ckeditor/ckeditor5-font/src/fontcolor';
-import FontFamily from '@ckeditor/ckeditor5-font/src/fontfamily';
-import FontSize from '@ckeditor/ckeditor5-font/src/fontsize';
-import Heading from '@ckeditor/ckeditor5-heading/src/heading';
-import HtmlEmbed from '@ckeditor/ckeditor5-html-embed/src/htmlembed';
-import Indent from '@ckeditor/ckeditor5-indent/src/indent';
-import Link from '@ckeditor/ckeditor5-link/src/link';
-import List from '@ckeditor/ckeditor5-list/src/list';
-import ListStyle from '@ckeditor/ckeditor5-list/src/liststyle';
-import PageBreak from '@ckeditor/ckeditor5-page-break/src/pagebreak';
-import Paragraph from '@ckeditor/ckeditor5-paragraph/src/paragraph';
-import Table from '@ckeditor/ckeditor5-table/src/table';
-import TableToolbar from '@ckeditor/ckeditor5-table/src/tabletoolbar';
-import TextTransformation from '@ckeditor/ckeditor5-typing/src/texttransformation';
-import Base64UploadAdapter from '@ckeditor/ckeditor5-upload/src/adapters/base64uploadadapter';
-import AutoImage from '@ckeditor/ckeditor5-image/src/autoimage';
-import Image from '@ckeditor/ckeditor5-image/src/image';
-import ImageCaption from '@ckeditor/ckeditor5-image/src/imagecaption';
-import ImageInsert from '@ckeditor/ckeditor5-image/src/imageinsert';
-import ImageResize from '@ckeditor/ckeditor5-image/src/imageresize';
-import ImageStyle from '@ckeditor/ckeditor5-image/src/imagestyle';
-import ImageToolbar from '@ckeditor/ckeditor5-image/src/imagetoolbar';
-import ImageUpload from '@ckeditor/ckeditor5-image/src/imageupload';
+import { UploadAdapter } from '@ckeditor/ckeditor5-adapter-ckfinder';
+import { Alignment } from '@ckeditor/ckeditor5-alignment';
+import { Autoformat } from '@ckeditor/ckeditor5-autoformat';
+import { BlockQuote } from '@ckeditor/ckeditor5-block-quote';
+import { EasyImage } from '@ckeditor/ckeditor5-easy-image';
+import { ClassicEditor } from '@ckeditor/ckeditor5-editor-classic';
+import { DecoupledEditor } from '@ckeditor/ckeditor5-editor-decoupled';
+import { Essentials } from '@ckeditor/ckeditor5-essentials';
+import { Heading } from '@ckeditor/ckeditor5-heading';
+import { HtmlEmbed } from '@ckeditor/ckeditor5-html-embed';
+import { Indent } from '@ckeditor/ckeditor5-indent';
+import { Link } from '@ckeditor/ckeditor5-link';
+import { List, ListStyle } from '@ckeditor/ckeditor5-list';
+import { PageBreak } from '@ckeditor/ckeditor5-page-break';
+import { Paragraph } from '@ckeditor/ckeditor5-paragraph';
+import { Table, TableToolbar } from '@ckeditor/ckeditor5-table';
+import { TextTransformation } from '@ckeditor/ckeditor5-typing';
+import { Base64UploadAdapter } from '@ckeditor/ckeditor5-upload';
+import { CloudServices } from '@ckeditor/ckeditor5-cloud-services';
+
+import { Bold, Italic, Strikethrough, Underline } from '@ckeditor/ckeditor5-basic-styles';
+import { FontBackgroundColor, FontColor, FontFamily, FontSize } from '@ckeditor/ckeditor5-font';
+import { AutoImage, Image, ImageInsert, ImageStyle, ImageToolbar, ImageUpload, ImageResize } from '@ckeditor/ckeditor5-image'; 
 
 import DynamicField from './plugins/dynamicField';
 import IndentBlock from './plugins/indentblock';
@@ -43,9 +30,9 @@ import { RenderTypes } from './plugins/reactRendering/constants';
 import Signature from './plugins/signature';
 import { emailEditorColors } from './constants';
 
-class EmailEditor extends ClassicEditorBase {}
+class EmailEditor extends ClassicEditor {}
 
-class InterfirstEditor extends DecoupledEditorBase {}
+class InterfirstEditor extends DecoupledEditor {}
 
 const commonConfigOptions = {
   fontFamily: {
@@ -72,20 +59,11 @@ const commonConfigOptions = {
     offset: 16,
     unit: 'px',
   },
-  image: {
-    styles: [
-       'full', 
-        'side',
-        'alignLeft', 
-        'alignCenter', 
-        'alignRight' 
-    ],
-    toolbar: ['imageStyle:full', 'imageStyle:side', '|', 'imageStyle:alignLeft', 'imageStyle:alignCenter', 'imageStyle:alignRight'],
-},
 };
 
 // Plugins to include in the build.
 InterfirstEditor.builtinPlugins = [
+  CloudServices,
   Essentials,
   Alignment,
   FontSize,
@@ -106,8 +84,8 @@ InterfirstEditor.builtinPlugins = [
   Base64UploadAdapter,
   AutoImage,
   Image,
-  ImageCaption,
   ImageInsert,
+  ImageResize,
   ImageStyle,
   ImageToolbar,
   ImageUpload,
@@ -131,6 +109,9 @@ InterfirstEditor.defaultConfig = {
   ...commonConfigOptions,
   toolbar: {
     items: [
+      'undo',
+      'redo',
+      '|',
       'heading',
       '|',
       'fontfamily',
@@ -157,12 +138,24 @@ InterfirstEditor.defaultConfig = {
       '|',
       'link',
       'blockquote',
-      'imageUpload',
+      'uploadImage',
       'insertTable',
       'htmlEmbed',
-      '|',
-      'undo',
-      'redo',
+    ],
+  },
+  image: {
+    insert: {
+      type: 'inline',
+    },
+    styles: {
+      options: [
+        'alignLeft', 
+        'alignRight',
+      ],
+    },
+    toolbar: [
+      'imageStyle:alignLeft', 
+      'imageStyle:alignRight',
     ],
   },
   table: {
@@ -230,10 +223,31 @@ EmailEditor.defaultConfig = {
       '|',
       'link',
       'blockQuote',
-      'imageUpload',
+      'uploadImage',
       '|',
       'undo',
       'redo',
+    ],
+  },
+  image: {
+    styles: {
+      options: [
+        'inline', 
+        'block', 
+        'side',
+        'alignLeft', 
+        'alignCenter', 
+        'alignRight',
+      ],
+    },
+    toolbar: [
+      'imageStyle:inline',
+      'imageStyle:block',
+      'imageStyle:side',
+      '|', 
+      'imageStyle:alignLeft', 
+      'imageStyle:alignCenter', 
+      'imageStyle:alignRight',
     ],
   },
   fontColor: emailEditorColors,
