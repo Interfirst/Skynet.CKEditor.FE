@@ -20,7 +20,7 @@ import { CloudServices } from '@ckeditor/ckeditor5-cloud-services';
 
 import { Bold, Italic, Strikethrough, Underline } from '@ckeditor/ckeditor5-basic-styles';
 import { FontBackgroundColor, FontColor, FontFamily, FontSize } from '@ckeditor/ckeditor5-font';
-import { AutoImage, Image, ImageInsert, ImageStyle, ImageToolbar, ImageUpload } from '@ckeditor/ckeditor5-image'; 
+import { AutoImage, Image, ImageInsert, ImageStyle, ImageToolbar, ImageUpload, ImageResize } from '@ckeditor/ckeditor5-image'; 
 
 import DynamicField from './plugins/dynamicField';
 import IndentBlock from './plugins/indentblock';
@@ -85,6 +85,7 @@ InterfirstEditor.builtinPlugins = [
   AutoImage,
   Image,
   ImageInsert,
+  ImageResize,
   ImageStyle,
   ImageToolbar,
   ImageUpload,
@@ -143,23 +144,17 @@ InterfirstEditor.defaultConfig = {
     ],
   },
   image: {
+    insert: {
+      type: 'inline',
+    },
     styles: {
       options: [
-        'inline', 
-        'block', 
-        'side',
         'alignLeft', 
-        'alignCenter', 
         'alignRight',
       ],
     },
     toolbar: [
-      'imageStyle:inline',
-      'imageStyle:block',
-      'imageStyle:side',
-      '|', 
       'imageStyle:alignLeft', 
-      'imageStyle:alignCenter', 
       'imageStyle:alignRight',
     ],
   },
@@ -179,7 +174,14 @@ EmailEditor.builtinPlugins = [
   FontFamily,
   FontSize,
   Heading,
+  Base64UploadAdapter,
+  AutoImage,
   Image,
+  ImageInsert,
+  ImageResize,
+  ImageStyle,
+  ImageToolbar,
+  ImageUpload,
   Indent,
   IndentBlock,
   Italic,
@@ -221,9 +223,31 @@ EmailEditor.defaultConfig = {
       '|',
       'link',
       'blockQuote',
+      'uploadImage',
       '|',
       'undo',
       'redo',
+    ],
+  },
+  image: {
+    styles: {
+      options: [
+        'inline', 
+        'block', 
+        'side',
+        'alignLeft', 
+        'alignCenter', 
+        'alignRight',
+      ],
+    },
+    toolbar: [
+      'imageStyle:inline',
+      'imageStyle:block',
+      'imageStyle:side',
+      '|', 
+      'imageStyle:alignLeft', 
+      'imageStyle:alignCenter', 
+      'imageStyle:alignRight',
     ],
   },
   fontColor: emailEditorColors,
