@@ -230,25 +230,9 @@ EmailEditor.defaultConfig = {
     ],
   },
   image: {
-    styles: {
-      options: [
-        'inline', 
-        'block', 
-        'side',
-        'alignLeft', 
-        'alignCenter', 
-        'alignRight',
-      ],
+    insert: {
+      type: 'inline',
     },
-    toolbar: [
-      'imageStyle:inline',
-      'imageStyle:block',
-      'imageStyle:side',
-      '|', 
-      'imageStyle:alignLeft', 
-      'imageStyle:alignCenter', 
-      'imageStyle:alignRight',
-    ],
   },
   fontColor: emailEditorColors,
   fontBackgroundColor: emailEditorColors,
