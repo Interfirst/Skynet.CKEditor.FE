@@ -10,7 +10,7 @@ import { Heading } from '@ckeditor/ckeditor5-heading';
 import { HtmlEmbed } from '@ckeditor/ckeditor5-html-embed';
 import { Indent } from '@ckeditor/ckeditor5-indent';
 import { Link } from '@ckeditor/ckeditor5-link';
-import { List, ListStyle } from '@ckeditor/ckeditor5-list';
+import { List, ListProperties } from '@ckeditor/ckeditor5-list';
 import { PageBreak } from '@ckeditor/ckeditor5-page-break';
 import { Paragraph } from '@ckeditor/ckeditor5-paragraph';
 import { Table, TableToolbar } from '@ckeditor/ckeditor5-table';
@@ -91,7 +91,7 @@ InterfirstEditor.builtinPlugins = [
   ImageUpload,
   Link,
   List,
-  ListStyle,
+  ListProperties,
   Paragraph,
   Table,
   TableToolbar,
