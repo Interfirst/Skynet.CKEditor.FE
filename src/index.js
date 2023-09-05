@@ -30,7 +30,9 @@ import { RenderTypes } from './plugins/reactRendering/constants';
 import Signature from './plugins/signature';
 import { emailEditorColors } from './constants';
 
-class EmailEditor extends ClassicEditor {}
+class EmailSnippetEditor extends ClassicEditor {}
+
+class EmailBodyEditor extends ClassicEditor {}
 
 class InterfirstEditor extends DecoupledEditor {}
 
@@ -163,7 +165,39 @@ InterfirstEditor.defaultConfig = {
   },
 };
 
-EmailEditor.builtinPlugins = [
+EmailSnippetEditor.builtinPlugins = [
+  Alignment,
+  Autoformat,
+  BlockQuote,
+  Bold,
+  Essentials,
+  FontBackgroundColor,
+  FontColor,
+  FontFamily,
+  FontSize,
+  Heading,
+  Base64UploadAdapter,
+  AutoImage,
+  Image,
+  ImageInsert,
+  ImageResize,
+  ImageStyle,
+  ImageToolbar,
+  ImageUpload,
+  Indent,
+  IndentBlock,
+  Italic,
+  Link,
+  List,
+  Paragraph,
+  Strikethrough,
+  TextTransformation,
+  Underline,
+  DynamicField,
+  ReactRendering,
+];
+
+EmailBodyEditor.builtinPlugins = [
   Alignment,
   Autoformat,
   BlockQuote,
@@ -193,12 +227,60 @@ EmailEditor.builtinPlugins = [
   Underline,
 ];
 
-// Editor configuration.
-EmailEditor.defaultConfig = {
-  ...commonConfigOptions,
+const commonEmailConfigOptions = {
   link: {
     defaultProtocol: 'https://',
   },
+  image: {
+    insert: {
+      type: 'inline',
+    },
+  },
+  fontColor: emailEditorColors,
+  fontBackgroundColor: emailEditorColors,
+}
+
+// Editor configuration with dynamic fields
+EmailSnippetEditor.defaultConfig = {
+  ...commonConfigOptions,
+  ...commonEmailConfigOptions,
+  toolbar: {
+    items: [
+      'heading',
+      '|',
+      'fontFamily',
+      'fontSize',
+      'fontColor',
+      'fontBackgroundColor',
+      '|',
+      'bold',
+      'italic',
+      'underline',
+      'strikethrough',
+      '|',
+      'alignment',
+      '|',
+      'numberedList',
+      'bulletedList',
+      '|',
+      'indent',
+      'outdent',
+      '|',
+      RenderTypes.DYNAMIC_FIELD,
+      'link',
+      'blockQuote',
+      'uploadImage',
+      '|',
+      'undo',
+      'redo',
+    ],
+  },
+};
+
+// Email body editor configuration without dynamic fields
+EmailBodyEditor.defaultConfig = {
+  ...commonConfigOptions,
+  ...commonEmailConfigOptions,
   toolbar: {
     items: [
       'heading',
@@ -229,14 +311,7 @@ EmailEditor.defaultConfig = {
       'redo',
     ],
   },
-  image: {
-    insert: {
-      type: 'inline',
-    },
-  },
-  fontColor: emailEditorColors,
-  fontBackgroundColor: emailEditorColors,
 };
 
-export default { EmailEditor, InterfirstEditor };
+export default { InterfirstEditor, EmailBodyEditor, EmailSnippetEditor };
 
