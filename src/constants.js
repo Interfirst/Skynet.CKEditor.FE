@@ -62,3 +62,43 @@ export const emailEditorColors = {
     },
   ],
 };
+
+export const commonConfigOptions = {
+  fontFamily: {
+    options: [
+      'default',
+      'Arial, Helvetica, sans-serif',
+      'Courier New, Courier, monospace',
+      'Georgia, serif',
+      'Lucida Sans Unicode, Lucida Grande, sans-serif',
+      'Tahoma, Geneva, sans-serif',
+      'Times New Roman, Times, serif',
+      'Trebuchet MS, Helvetica, sans-serif',
+      'Verdana, Geneva, sans-serif',
+    ],
+    supportAllValues: true,
+  },
+  fontSize: {
+    options: [9, 10, 11, 12, 13, 'default', 15, 16, 17, 18, 19, 20, 21],
+    supportAllValues: true,
+  },
+  // This value must be kept in sync with the language defined in webpack.config.js.
+  language: 'en',
+  indentBlock: {
+    offset: 16,
+    unit: 'px',
+  },
+};
+
+export const commonEmailConfigOptions = {
+  link: {
+    defaultProtocol: 'https://',
+  },
+  image: {
+    insert: {
+      type: 'inline',
+    },
+  },
+  fontColor: emailEditorColors,
+  fontBackgroundColor: emailEditorColors,
+}
