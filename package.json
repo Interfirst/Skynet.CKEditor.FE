@@ -16,12 +16,10 @@
   "license": "GPL-2.0-or-later",
   "scripts": {
     "build": "NODE_OPTIONS=--openssl-legacy-provider webpack --mode production",
-    "precommit": "lint-staged -v",
-    "start": "nodemon --watch src --ext js,css --exec \"yarn run build\" & browser-sync start --proxy \"http://localhost:3000\" --files \"build\" \"*.css\" --browser \"chrome\""
+    "precommit": "lint-staged -v"
   },
   "devDependencies": {
     "@interfirst/utils": "1.0.3",
-    "browser-sync": "^2.26.13",
     "nodemon": "^2.0.7",
     "postcss-loader": "^3.0.0",
     "raw-loader": "^4.0.1",
