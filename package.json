@@ -1,6 +1,6 @@
 {
   "name": "@interfirst/ckeditor-custom-build",
-  "version": "1.1.5",
+  "version": "1.1.6",
   "private": false,
   "engines": {
     "node": ">= 18.16.0"
@@ -50,6 +50,7 @@
     "@ckeditor/ckeditor5-heading": "^39.0.0",
     "@ckeditor/ckeditor5-highlight": "^39.0.0",
     "@ckeditor/ckeditor5-html-embed": "^39.0.0",
+    "@ckeditor/ckeditor5-html-support": "^39.0.2",
     "@ckeditor/ckeditor5-image": "^39.0.0",
     "@ckeditor/ckeditor5-indent": "^39.0.0",
     "@ckeditor/ckeditor5-link": "^39.0.0",
