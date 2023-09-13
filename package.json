@@ -16,12 +16,22 @@
   "license": "GPL-2.0-or-later",
   "scripts": {
     "build": "NODE_OPTIONS=--openssl-legacy-provider webpack --mode production",
-    "precommit": "lint-staged -v"
+    "precommit": "lint-staged -v",
+    "lint": "eslint src",
+    "lint:fix": "eslint src --fix",
+    "prepare": "husky install"
   },
   "devDependencies": {
+    "@commitlint/cli": "^13.2.1",
+    "@commitlint/config-conventional": "^13.2.0",
     "@interfirst/utils": "1.0.3",
+    "eslint": "^8.49.0",
+    "eslint-config-prettier": "^9.0.0",
     "nodemon": "^2.0.7",
     "postcss-loader": "^3.0.0",
+    "husky": "^8.0.0",
+    "lint-staged": "^11.2.3",
+    "prettier": "^3.0.3",
     "raw-loader": "^4.0.1",
     "style-loader": "^1.2.1",
     "webpack": "^4.43.0",
