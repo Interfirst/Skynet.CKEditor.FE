@@ -101,4 +101,4 @@ export const commonEmailConfigOptions = {
   },
   fontColor: emailEditorColors,
   fontBackgroundColor: emailEditorColors,
-}
+};

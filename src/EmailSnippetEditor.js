@@ -21,7 +21,7 @@ import {
   ImageToolbar,
   ImageUpload,
   ImageResize,
-} from '@ckeditor/ckeditor5-image'; 
+} from '@ckeditor/ckeditor5-image';
 
 import DynamicField from './plugins/dynamicField';
 import IndentBlock from './plugins/indentblock';
@@ -100,4 +100,4 @@ EmailSnippetEditor.defaultConfig = {
   },
 };
 
-export default EmailSnippetEditor
+export default EmailSnippetEditor;
