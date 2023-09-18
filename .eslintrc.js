@@ -1,134 +1,26 @@
-const path = require('path');
-
 module.exports = {
-  parser: 'babel-eslint',
-  extends: [
-    'react-app',
-    'plugin:react/recommended', // Uses the recommended rules from @eslint-plugin-react
-    'prettier',
-    'plugin:react-perf/recommended',
-  ],
-  plugins: [
-    'import',
-    'jsx-a11y',
-    'react',
-    'react-hooks',
-    'simple-import-sort',
-    'prettier',
-    'react-perf',
-    'jest',
-    'testing-library',
-  ],
   env: {
     browser: true,
-    commonjs: true,
-    es6: true,
-    jest: true,
-    node: true,
+    es2021: true,
   },
-  parserOptions: {
-    ecmaVersion: 2022,
-    sourceType: 'module',
-    ecmaFeatures: {
-      jsx: true,
-    },
-  },
-  settings: {
-    'import/resolver': {
-      node: {
-        paths: [path.resolve(__dirname, 'src')],
-      },
-    },
-    react: {
-      version: 'detect',
-    },
-  },
+  extends: ['eslint:recommended', 'prettier'],
   overrides: [
     {
-      files: ['**/*.ts?(x)'],
-      parser: '@typescript-eslint/parser',
-      plugins: ['@typescript-eslint'],
-      rules: {
-        'simple-import-sort/imports': [
-          'error',
-          {
-            groups: [
-              ['^@?\\w'],
-              ['^(@)(/.*|$)'],
-              ['^\\.\\.(?!/?$)', '^\\.\\./?$'],
-              ['^\\./(?=.*/)(?!/?$)', '^\\.(?!/?$)', '^\\./?$'],
-              ['^\\u0000'],
-            ],
-          },
-        ],
-        // TypeScript's `noFallthroughCasesInSwitch` option is more robust (#6906)
-        'default-case': 'off',
-        // 'tsc' already handles this (https://github.com/typescript-eslint/typescript-eslint/issues/291)
-        'no-dupe-class-members': 'off',
-        // 'tsc' already handles this (https://github.com/typescript-eslint/typescript-eslint/issues/477)
-        'no-undef': 'off',
-
-        // Add TypeScript specific rules (and turn off ESLint equivalents)
-        '@typescript-eslint/consistent-type-assertions': 'warn',
-        'no-array-constructor': 'off',
-        '@typescript-eslint/no-array-constructor': 'warn',
-        'no-use-before-define': 'off',
-        '@typescript-eslint/no-use-before-define': [
-          'warn',
-          {
-            functions: false,
-            classes: false,
-            variables: false,
-            typedefs: false,
-          },
-        ],
-        'no-unused-expressions': 'off',
-        '@typescript-eslint/no-unused-expressions': [
-          'error',
-          {
-            allowShortCircuit: true,
-            allowTernary: true,
-            allowTaggedTemplates: true,
-          },
-        ],
-        'no-unused-vars': 'off',
-        '@typescript-eslint/no-unused-vars': [
-          'warn',
-          {
-            args: 'none',
-            ignoreRestSiblings: true,
-          },
-        ],
-        'no-useless-constructor': 'off',
-        '@typescript-eslint/no-useless-constructor': 'warn',
-        'react/prop-types': 'off',
-        'react/no-unused-prop-types': 'off',
-        'react/require-default-props': 'off',
-        'react/default-props-match-prop-types': 'off',
-        'react/forbid-prop-types': 'off',
-        'react/sort-prop-types': 'off',
+      env: {
+        node: true,
+      },
+      files: ['.eslintrc.{js,cjs}'],
+      parserOptions: {
+        sourceType: 'script',
       },
     },
-    {
-      files: ['**/__tests__/**/*.[jt]s?(x)', '**/?(*.)+(spec|test).[jt]s?(x)'],
-      extends: ['plugin:jest/style', 'plugin:testing-library/react'],
-    },
   ],
-
-  // NOTE: When adding rules here, you need to make sure they are compatible with
-  // `typescript-eslint`, as some rules such as `no-array-constructor` aren't compatible.
+  parserOptions: {
+    ecmaVersion: 'latest',
+    sourceType: 'module',
+  },
   rules: {
-    'prettier/prettier': 'error',
-    'sort-imports': 'off',
-    'import/order': 'off',
-    'import/imports-first': 'error',
-    'import/newline-after-import': 'error',
-    'import/no-extraneous-dependencies': 'error',
-    'import/no-named-as-default': 'error',
-    'import/no-unresolved': 'error',
-    'import/no-webpack-loader-syntax': 'error',
-    'import/prefer-default-export': 'off',
-    'import/extensions': 'error',
+    'no-duplicate-imports': 'error',
     'constructor-super': 'error',
     'for-direction': 'error',
     'getter-return': 'error',
@@ -137,7 +29,7 @@ module.exports = {
     'no-class-assign': 'error',
     'no-compare-neg-zero': 'error',
     'no-cond-assign': 'error',
-    'no-console': 'warn',
+    'no-console': ['error', { allow: ['error'] }],
     'no-const-assign': 'error',
     'no-constant-condition': 'error',
     'no-control-regex': 'error',
@@ -185,61 +77,5 @@ module.exports = {
     'require-yield': 'error',
     'use-isnan': 'error',
     'valid-typeof': 'error',
-    'react/self-closing-comp': 'error',
-    'react/jsx-sort-props': [
-      'error',
-      {
-        shorthandFirst: true,
-        callbacksLast: true,
-        noSortAlphabetically: false,
-      },
-    ],
-    'react/jsx-boolean-value': 1,
-    'react/jsx-curly-brace-presence': 1,
-    'react/prop-types': [
-      'warn',
-      { ignore: ['className', 'children', 'classes', 'route', 'history', 'match'] },
-    ],
-    'react/no-unused-prop-types': 'warn',
-    'react/require-default-props': [
-      'warn',
-      {
-        forbidDefaultForRequired: true,
-      },
-    ],
-    'react/default-props-match-prop-types': ['warn', { allowRequiredDefaults: false }],
-    'react/forbid-prop-types': [
-      'warn',
-      {
-        forbid: ['any'],
-        checkContextTypes: true,
-        checkChildContextTypes: true,
-      },
-    ],
-    'react/sort-prop-types': [
-      'warn',
-      {
-        requiredFirst: true,
-        callbacksLast: true,
-        sortShapeProp: true,
-        noSortAlphabetically: true,
-      },
-    ],
-    'react/display-name': 0,
-    // Checks rules of Hooks
-    'react-hooks/rules-of-hooks': 'warn',
-    'react-hooks/exhaustive-deps': 'warn',
-  },
-  globals: {
-    window: true,
-    document: true,
-    localStorage: true,
-    sessionStorage: true,
-    FormData: true,
-    FileReader: true,
-    Blob: true,
-    navigator: true,
-    Image: true,
-    history: true,
   },
 };

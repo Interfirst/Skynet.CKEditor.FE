@@ -19,7 +19,15 @@ import { CloudServices } from '@ckeditor/ckeditor5-cloud-services';
 
 import { Bold, Italic, Strikethrough, Underline } from '@ckeditor/ckeditor5-basic-styles';
 import { FontBackgroundColor, FontColor, FontFamily, FontSize } from '@ckeditor/ckeditor5-font';
-import { AutoImage, Image, ImageInsert, ImageStyle, ImageToolbar, ImageUpload, ImageResize } from '@ckeditor/ckeditor5-image'; 
+import {
+  AutoImage,
+  Image,
+  ImageInsert,
+  ImageStyle,
+  ImageToolbar,
+  ImageUpload,
+  ImageResize,
+} from '@ckeditor/ckeditor5-image';
 
 import DynamicField from './plugins/dynamicField';
 import IndentBlock from './plugins/indentblock';
@@ -118,19 +126,13 @@ InterfirstEditor.defaultConfig = {
       type: 'inline',
     },
     styles: {
-      options: [
-        'alignLeft', 
-        'alignRight',
-      ],
+      options: ['alignLeft', 'alignRight'],
     },
-    toolbar: [
-      'imageStyle:alignLeft', 
-      'imageStyle:alignRight',
-    ],
+    toolbar: ['imageStyle:alignLeft', 'imageStyle:alignRight'],
   },
   table: {
     contentToolbar: ['tableColumn', 'tableRow', 'mergeTableCells'],
   },
 };
 
-export default InterfirstEditor
+export default InterfirstEditor;

@@ -23,7 +23,7 @@ import {
   ImageToolbar,
   ImageUpload,
   ImageResize,
-} from '@ckeditor/ckeditor5-image'; 
+} from '@ckeditor/ckeditor5-image';
 
 import IndentBlock from './plugins/indentblock';
 import { commonConfigOptions, commonEmailConfigOptions } from './constants';
@@ -60,7 +60,6 @@ EmailBodyEditor.builtinPlugins = [
   Underline,
   GeneralHtmlSupport,
 ];
-
 
 // Email body editor configuration without dynamic fields
 EmailBodyEditor.defaultConfig = {
@@ -112,4 +111,4 @@ EmailBodyEditor.defaultConfig = {
   },
 };
 
-export default EmailBodyEditor
+export default EmailBodyEditor;
