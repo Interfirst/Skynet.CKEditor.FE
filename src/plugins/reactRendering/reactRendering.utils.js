@@ -18,7 +18,7 @@ export const getStringFromStyleObject = value => {
 
       case 'fontSize': {
         acc += `font-size: ${
-          parseInt(parsableValue.fontSize) ? parsableValue.fontSize + 'px' : 'initial'
+          parseInt(parsableValue.fontSize) ? parsableValue.fontSize + 'px' : 'inherit'
         };`;
         break;
       }
