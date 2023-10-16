@@ -24,12 +24,16 @@ export const getStringFromStyleObject = value => {
       }
 
       case 'fontColor': {
-        acc += `color: ${parsableValue.fontColor};`;
+        if (parsableValue.fontColor) {
+          acc += `color: ${parsableValue.fontColor};`;
+        }
         break;
       }
 
       case 'fontFamily': {
-        acc += `font-family: ${parsableValue.fontFamily};`;
+        if (parsableValue.fontFamily) {
+          acc += `font-family: ${parsableValue.fontFamily};`;
+        }
         break;
       }
 
