@@ -10,8 +10,7 @@ import { List } from '@ckeditor/ckeditor5-list';
 import { Paragraph } from '@ckeditor/ckeditor5-paragraph';
 import { TextTransformation } from '@ckeditor/ckeditor5-typing';
 import { Base64UploadAdapter } from '@ckeditor/ckeditor5-upload';
-import { GeneralHtmlSupport } from '@ckeditor/ckeditor5-html-support'
-
+import { GeneralHtmlSupport } from '@ckeditor/ckeditor5-html-support';
 
 import { Bold, Italic, Strikethrough, Underline } from '@ckeditor/ckeditor5-basic-styles';
 import { FontBackgroundColor, FontColor, FontFamily, FontSize } from '@ckeditor/ckeditor5-font';
@@ -67,18 +66,19 @@ EmailBodyEditor.defaultConfig = {
   ...commonEmailConfigOptions,
   htmlSupport: {
     allow: [
-        {
-            name: 'div',
-            styles: true,
-            classes: true,
-        },
-        {
-            name: 'span',
-            styles: true,
-            classes: true,
-        },
-      ],
-    },
+      {
+        name: 'div',
+        styles: true,
+        classes: true,
+        attributes: true,
+      },
+      {
+        name: 'span',
+        styles: true,
+        classes: true,
+      },
+    ],
+  },
   toolbar: {
     items: [
       'heading',
