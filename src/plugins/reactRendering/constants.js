@@ -13,6 +13,7 @@ export const allowAttributes = [
   'dataDynamicHint',
   'dataTemplateFieldType',
   'dataDynamicCheckboxRenderType',
+  'dataDynamicIgnoreUserDefinedStyles',
   'dataHellosignTag',
   'dataHellosignSigner',
   'dataHellosignRequired',
